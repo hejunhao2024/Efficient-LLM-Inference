@@ -3,7 +3,6 @@ from datasets import load_dataset
 
 wikitext = load_dataset("wikitext", "wikitext-2-raw-v1")
 
-# 保存 test 集
 with open("./data/WikiText-2/test.txt", "w", encoding="utf-8") as f:
     for item in wikitext["test"]:
         text = item["text"].strip()
