@@ -243,7 +243,7 @@ def benchmark_latency_memory(
 
     decode_start = time.perf_counter()
 
-    with decode_ctx:
+    with decode_ctx: # decode_ctx是上下文管理器，with 阶段给模型层加 hook
         for i in range(target_ids.shape[1] - 1):
             position_ids = torch.tensor(
                 [[position_base + i]],
